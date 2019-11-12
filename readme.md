@@ -50,7 +50,7 @@ export function useMyHook(init) {
 
 ### Hooks libraries / packages
 
-_Any-hooks_ can be used in hooks libraries to extend supported frameworks.
+_Any-hooks_ can be used in hooks libraries to extend frameworks support to non-react.
 
 ```js
 // super-hooks
