@@ -2,7 +2,7 @@ let lib = {}
 
 try { lib = require('rax') } catch (e) { }
 
-export const {
+module.exports = {
   useState,
   useReducer,
   useEffect,

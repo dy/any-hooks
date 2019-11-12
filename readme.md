@@ -14,7 +14,7 @@ export function useMyHook(init) {
 
 ## Supported libraries
 
-**any-hooks** attempts to detect hooks in the following order:
+**any-hooks** attempts to detect hooks providers in the following order:
 
 * [`react`](https://ghub.io/react)
 * [`preact`](https://ghub.io/preact)
@@ -43,18 +43,18 @@ export function useMyHook(init) {
 | `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌        | ❌      | ❌      | ❌ |
 | `useDebugValue`         | ✅    | ❌    | ❌  | ❌      | ❌        | ❌      | ❌      | ❌ |
 | `useTransition`         | ✅*   | ❌    | ❌  | ❌      | ❌        | ❌      | ❌      | ❌ |
-| <small>`useProp`</small>|       |       |      |         |           |         |         |    |
-| `useHook`               |       |       |      |         |           |         |         |    |
-| `useHost`               |       |       |      |         |           |         |         |    |
-| `useRender`             |       |       |      |         |           |         |         |    |
-| `useEvent`              |       |       |      |         |           |         |         |    |
+<!-- | <small>`useProp`</small>|       |       |      |         |           |         |         |    | -->
+<!-- | `useHook`               |       |       |      |         |           |         |         |    | -->
+<!-- | `useHost`               |       |       |      |         |           |         |         |    | -->
+<!-- | `useRender`             |       |       |      |         |           |         |         |    | -->
+<!-- | `useEvent`              |       |       |      |         |           |         |         |    | -->
 
 
 ## Use cases
 
-### Hooks provider for libraries / packages
+### Hooks libraries / packages
 
-**any-hooks** can be a better choice than react for hooks libraries - it extends hooks support to all frameworks.
+_Any-hooks_ can be used in hooks libraries to extend supported frameworks.
 
 ```js
 // super-hooks
@@ -71,7 +71,7 @@ export function useMySuperHook(init) {
 
 ### Hooks adapter
 
-**any-hooks** can serve as adapter for react hooks in non-react libraries, like [augmentor](https://ghub.io/augmentor), [haunted](https://ghub.io/haunted), [atomico](https://ghub.io/atomico) etc. The strategy is similar to [preact/compat](https://preactjs.com/guide/v10/getting-started#integrating-into-an-existing-pipeline) aliasing.
+_Any-hooks_ can enable react hooks for non-react libraries, like [augmentor](https://ghub.io/augmentor), [haunted](https://ghub.io/haunted) etc. The strategy is similar to [preact/compat](https://preactjs.com/guide/v10/getting-started#integrating-into-an-existing-pipeline) aliasing.
 
 #### Aliasing in webpack
 

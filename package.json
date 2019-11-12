@@ -4,7 +4,7 @@
   "description": "Resolve any available installed hooks",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "node -r esm -r browser-env/register -r raf/polyfill test",
     "start": "parcel serve --no-hmr test.html"
   },
   "repository": {
@@ -36,10 +36,12 @@
   "devDependencies": {
     "atomico": "^0.13.0",
     "augmentor": "^1.1.4",
+    "browser-env": "^3.3.0",
     "fn-with-hooks": "^0.1.1",
     "haunted": "^4.6.2",
     "parcel": "^1.12.4",
     "preact": "^10.0.5",
+    "raf": "^3.4.1",
     "rax": "^1.0.13",
     "react": "^16.11.0",
     "tape": "^4.11.0",
