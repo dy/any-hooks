@@ -16,4 +16,6 @@ const winner = react.useState ? react :
   tng.useState ? tng :
   fn.useState ? fn : null
 
+if (!winner) throw Error('No installed hooks providers found.')
+
 module.exports = winner
