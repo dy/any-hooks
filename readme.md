@@ -43,11 +43,7 @@ export function useMyHook(init) {
 | `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌        | ❌      | ❌      | ❌ |
 | `useDebugValue`         | ✅    | ❌    | ❌  | ❌      | ❌        | ❌      | ❌      | ❌ |
 | `useTransition`         | ✅*   | ❌    | ❌  | ❌      | ❌        | ❌      | ❌      | ❌ |
-<!-- | <small>`useProp`</small>|       |       |      |         |           |         |         |    | -->
-<!-- | `useHook`               |       |       |      |         |           |         |         |    | -->
-<!-- | `useHost`               |       |       |      |         |           |         |         |    | -->
-<!-- | `useRender`             |       |       |      |         |           |         |         |    | -->
-<!-- | `useEvent`              |       |       |      |         |           |         |         |    | -->
+
 
 
 ## Use cases
