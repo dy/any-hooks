@@ -14,6 +14,6 @@ const winner = react.useState ? react :
   atomico.useState ? atomico :
   haunted.useState ? haunted :
   tng.useState ? tng :
-  fn.useState ? fn : {}
+  fn.useState ? fn : null
 
 module.exports = winner
