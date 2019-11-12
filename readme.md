@@ -31,7 +31,7 @@ export function useMyHook(init) {
 ## Supported hooks
 
 |                        | React | Preact | Rax | Haunted | Augmentor | Atomico | TNG-hooks | fn-with-hooks |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `useState`              | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ✅      | ✅ |
 | `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ✅      | ✅ |
 | `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*       | ❌      | ❌      | ❌ |
@@ -54,7 +54,7 @@ export function useMyHook(init) {
 
 ### Hooks provider for libraries / packages
 
-**any-hooks** can be a good choice for hooks libraries - it makes hooks available for any frameworks, not only limited to react.
+**any-hooks** can be a better choice than react for hooks libraries - it extends hooks support to all frameworks.
 
 ```js
 // super-hooks
@@ -71,7 +71,7 @@ export function useMySuperHook(init) {
 
 ### Hooks adapter
 
-**any-hooks** can serve as adapter to make react hooks available in non-react libraries, like [augmentor](https://ghub.io/augmentor), [haunted](https://ghub.io/haunted), [atomico](https://ghub.io/atomico) etc. The strategy is similar to [preact/compat](https://preactjs.com/guide/v10/getting-started#integrating-into-an-existing-pipeline) aliasing.
+**any-hooks** can serve as adapter for react hooks in non-react libraries, like [augmentor](https://ghub.io/augmentor), [haunted](https://ghub.io/haunted), [atomico](https://ghub.io/atomico) etc. The strategy is similar to [preact/compat](https://preactjs.com/guide/v10/getting-started#integrating-into-an-existing-pipeline) aliasing.
 
 #### Aliasing in webpack
 
