@@ -1,0 +1,48 @@
+{
+  "name": "any-hooks",
+  "version": "1.0.0",
+  "description": "Resolve any available installed hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "parcel serve --no-hmr test.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dy/any-hooks.git"
+  },
+  "keywords": [
+    "hooks",
+    "react",
+    "enhook",
+    "augmentor",
+    "preact-compat",
+    "preact",
+    "tng-hooks",
+    "fn-with-hooks",
+    "haunted",
+    "atomico",
+    "unihooks",
+    "rax",
+    "dom-augmentor",
+    "use-state"
+  ],
+  "author": "Dmitry Yv. <df.creative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dy/any-hooks/issues"
+  },
+  "homepage": "https://github.com/dy/any-hooks#readme",
+  "devDependencies": {
+    "atomico": "^0.13.0",
+    "augmentor": "^1.1.4",
+    "fn-with-hooks": "^0.1.1",
+    "haunted": "^4.6.2",
+    "parcel": "^1.12.4",
+    "preact": "^10.0.5",
+    "rax": "^1.0.13",
+    "react": "^16.11.0",
+    "tape": "^4.11.0",
+    "tng-hooks": "^4.1.5"
+  }
+}
