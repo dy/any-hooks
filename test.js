@@ -43,6 +43,7 @@ t('react', t => {
   t.ok(hooks.useRef, 'useRef')
   t.ok(hooks.useContext, 'useContext')
   t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
+  t.notOk(hooks.createElement)
 
   t.end()
 })

@@ -3,12 +3,12 @@ let lib = {}
 try { lib = require('fn-with-hooks') } catch (e) { }
 
 module.exports = {
-  useState,
-  useReducer,
-  useEffect,
-  useMemo,
-  useCallback,
-  useContext,
-  useRef,
-  useLayoutEffect
-} = lib
+  useState: lib.useState,
+  useReducer: lib.useReducer,
+  useEffect: lib.useEffect,
+  useMemo: lib.useMemo,
+  useCallback: lib.useCallback,
+  useContext: lib.useContext,
+  useRef: lib.useRef,
+  useLayoutEffect: lib.useLayoutEffect
+}
