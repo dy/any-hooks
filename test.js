@@ -78,6 +78,36 @@ t('augmentor', t => {
   t.end()
 })
 
+t('dom-augmentor', t => {
+  let hooks = require('./dom-augmentor.js')
+
+  t.ok(hooks.useState, 'useState')
+  t.ok(hooks.useReducer, 'useReducer')
+  t.ok(hooks.useEffect, 'useEffect')
+  t.ok(hooks.useMemo, 'useMemo')
+  t.ok(hooks.useCallback, 'useCallback')
+  t.ok(hooks.useRef, 'useRef')
+  t.ok(hooks.useContext, 'useContext')
+  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
+
+  t.end()
+})
+
+t('neverland', t => {
+  let hooks = require('./neverland.js')
+
+  t.ok(hooks.useState, 'useState')
+  t.ok(hooks.useReducer, 'useReducer')
+  t.ok(hooks.useEffect, 'useEffect')
+  t.ok(hooks.useMemo, 'useMemo')
+  t.ok(hooks.useCallback, 'useCallback')
+  t.ok(hooks.useRef, 'useRef')
+  t.ok(hooks.useContext, 'useContext')
+  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
+
+  t.end()
+})
+
 t('rax', t => {
   let hooks = require('./rax.js')
 
