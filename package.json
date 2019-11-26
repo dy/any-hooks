@@ -37,6 +37,7 @@
     "atomico": "^0.13.0",
     "augmentor": "^1.1.4",
     "browser-env": "^3.3.0",
+    "dom-augmentor": "^1.4.0",
     "esm": "^3.2.25",
     "fn-with-hooks": "^0.1.1",
     "haunted": "^4.6.2",
