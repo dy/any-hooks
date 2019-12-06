@@ -1,4 +1,4 @@
-# any-hooks [![Build Status](https://travis-ci.org/dy/any-hooks.svg?branch=master)](https://travis-ci.org/dy/any-hooks) [![unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](http://github.com/badges/stability-badges)
+# any-hooks [![Build Status](https://travis-ci.org/unihooks/any-hooks.svg?branch=master)](https://travis-ci.org/unihooks/any-hooks) [![unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](http://github.com/badges/stability-badges)
 
 Resolve any installed available hooks.
 
