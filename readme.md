@@ -33,7 +33,7 @@ export function useMyHook(init) {
 ## Supported hooks
 
 |                         | React | Preact | Rax | Haunted  | Neverland/Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `useState`              | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
 | `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
 | `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*                | ✅    | ❌      | ❌        | ❌ |
