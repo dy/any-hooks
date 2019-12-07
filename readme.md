@@ -21,11 +21,10 @@ export function useMyHook(init) {
 * [`rax`](https://ghub.io/rax)
 * [`haunted`](https://ghub.io/haunted)
 * [`neverland`](https://ghub.io/neverland)
-* [`augmentor`](https://ghub.io/augmentor)
 * [`dom-augmentor`](https://ghub.io/dom-augmentor)
+* [`augmentor`](https://ghub.io/augmentor)
 * [`atomico`](https://ghub.io/atomico)
 * [`fuco`](https://ghub.io/fuco)
-* [`spect`](https://ghub.io/spect)
 * [`tng-hooks`](https://ghub.io/tng-hooks) (manual call API)
 * [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
 * ...
