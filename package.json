@@ -40,6 +40,7 @@
     "dom-augmentor": "^1.4.0",
     "esm": "^3.2.25",
     "fn-with-hooks": "^0.1.1",
+    "fuco": "^1.2.0",
     "haunted": "^4.6.2",
     "neverland": "^3.0.3",
     "parcel": "^1.12.4",

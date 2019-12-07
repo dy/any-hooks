@@ -20,32 +20,34 @@ export function useMyHook(init) {
 * [`preact`](https://ghub.io/preact)
 * [`rax`](https://ghub.io/rax)
 * [`haunted`](https://ghub.io/haunted)
+* [`neverland`](https://ghub.io/neverland)
 * [`augmentor`](https://ghub.io/augmentor)
 * [`dom-augmentor`](https://ghub.io/dom-augmentor)
-* [`neverland`](https://ghub.io/neverland)
 * [`atomico`](https://ghub.io/atomico)
+* [`fuco`](https://ghub.io/fuco)
+* [`spect`](https://ghub.io/spect)
 * [`tng-hooks`](https://ghub.io/tng-hooks) (manual call API)
 * [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
-
-(no opinion about the sequence, just based on popularity of packages).
-
+* ...
 
 ## Supported hooks
 
-|                        | React | Preact | Rax | Haunted | Augmentor | Atomico | TNG-hooks | fn-with-hooks |
+|                         | React | Preact | Rax | Haunted  | Neverland/Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| `useState`              | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ✅      | ✅ |
-| `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ✅      | ✅ |
-| `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*       | ❌      | ❌      | ❌ |
-| `useCallback`           | ✅    | ✅    | ✅  | ✅      | ✅        | ❌      | ✅      | ✅ |
-| `useReducer`            | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ✅      | ✅ |
-| `useMemo`               | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ✅      | ✅ |
-| `useRef`                | ✅    | ✅    | ✅  | ✅      | ✅        | ❌      | ✅      | ❌ |
-| `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅        | ✅      | ❌      | ❌ |
-| `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌        | ❌      | ❌      | ❌ |
-| `useDebugValue`         | ✅    | ❌    | ❌  | ❌      | ❌        | ❌      | ❌      | ❌ |
-| `useTransition`         | ✅*   | ❌    | ❌  | ❌      | ❌        | ❌      | ❌      | ❌ |
+| `useState`              | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
+| `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
+| `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*                | ✅    | ❌      | ❌        | ❌ |
+| `useCallback`           | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ❌      | ✅        | ✅ |
+| `useReducer`            | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
+| `useMemo`               | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
+| `useRef`                | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ❌      | ✅        | ❌ |
+| `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ❌        | ❌ |
+| `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌                 | ❌    | ❌      | ❌        | ❌ |
+| `useDebugValue`*        | ✅    | ❌    | ❌  | ❌      | ❌                 | ❌    | ❌      | ❌        | ❌ |
+| `useTransition`*        | ✅*   | ❌    | ❌  | ❌      | ❌                 | ❌    | ❌      | ❌        | ❌ |
+| `useProperty`*          | ❌    | ❌    | ❌  | ❌      | ❌                 | ✅    | ✅      | ❌        | ❌ |
 
+<sup>*</sup> − non-standard
 
 
 ## Use cases
@@ -165,9 +167,11 @@ moduleAlias.addAliases({ 'react': 'any-hooks' })
 
 ## See also
 
-* [enhook](https://ghub.io/enhook) - enable hooks for any function.
-* [remorph](https://ghub.io/@dy/remorph) - react/preact-based morphdom.
-* [any-observable](https://ghub.io/any-observable) - resolve any installed Observable.
+* [unihooks](https://ghub.io/unihooks) − essential multiframework hooks collection
+* [enhook](https://ghub.io/enhook) − turn function into hooks-enabled function.
+* [unhook](https://ghub.io/unhook) − unleash hooks - make them available directly.
+* [remorph](https://ghub.io/@dy/remorph) − react/preact-based morphdom.
+* [any-observable](https://ghub.io/any-observable) − resolve any installed Observable.
 
 ## License
 
