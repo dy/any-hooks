@@ -38,7 +38,7 @@ import hooks from 'my-custom-hooks'
 
 useHooks(hooks)
 
-// now all deps, using any-hooks, automatically use my-custom-hooks
+// now all packages depending on any-hooks (like unihooks) automatically use my-custom-hooks
 ```
 
 
