@@ -29,14 +29,22 @@ export function useMyHook(init) {
 * [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
 * ...
 
+To set particular hooks provider:
+
+```js
+import setHooks, * as hooks from 'any-hooks'
+
+setHooks('preact')
+```
+
 
 Custom hooks provider can be set as:
 
 ```js
-import useHooks from 'any-hooks'
+import setHooks from 'any-hooks'
 import hooks from 'my-custom-hooks'
 
-useHooks(hooks)
+setHooks(hooks)
 
 // now all packages depending on any-hooks (like unihooks) automatically use my-custom-hooks
 ```
