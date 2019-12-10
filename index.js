@@ -1,4 +1,6 @@
 let lib
+
+// require is the only way (for now) to detect installed dependency
 if (!lib) { try { lib = require('react') } catch (e) { } }
 if (!lib) { try { lib = require('preact/hooks') } catch (e) { } }
 if (!lib) { try { lib = require('rax') } catch (e) { } }
@@ -13,16 +15,24 @@ if (!lib) { try { lib = require('fn-with-hooks') } catch (e) { } }
 
 if (!lib) throw Error('No installed hooks providers found.')
 
-module.exports = {
-  useState: lib.useState,
-  useReducer: lib.useReducer,
-  useEffect: lib.useEffect,
-  useMemo: lib.useMemo,
-  useCallback: lib.useCallback,
-  useContext: lib.useContext,
-  useRef: lib.useRef,
-  useImperativeHandle: lib.useImperativeHandle,
-  useLayoutEffect: lib.useLayoutEffect,
-  useDebugValue: lib.useDebugValue,
-  useTransition: lib.useTransition
+export let useState, useEffect, useCallback, useContext, useRef, useReducer, useLayoutEffect, useMemo, useDebugValue, useTransition, useImperativeHandle, useProperty
+
+export default setHooks
+
+function setHooks(hooks) {
+  lib = hooks
+  useState = lib.useState
+  useEffect = lib.useEffect
+  useCallback = lib.useCallback
+  useContext = lib.useContext
+  useRef = lib.useRef
+  useReducer = lib.useReducer
+  useLayoutEffect = lib.useLayoutEffect
+  useMemo = lib.useMemo
+  useDebugValue = lib.useDebugValue
+  useTransition = lib.useTransition
+  useImperativeHandle = lib.useImperativeHandle
+  useProperty = lib.useProperty || lib.useProp
 }
+setHooks(lib)
+

@@ -1,9 +1,27 @@
+// polyfill MessageChannel for node (fuco requires it)
+// FIXME: remove once https://github.com/wtnbass/fuco/issues/33
+if (typeof MessageChannel === 'undefined') {
+  global.MessageChannel = function () {
+    let port1 = {},
+      port2 = {
+        postMessage(...args) {
+          if (port1.onmessage) port1.onmessage(...args)
+        }
+      }
+    return {
+      port1,
+      port2
+    }
+  }
+}
+
+
 let t = require('tape')
+let hooks = require('./index.js')
+let setHooks = hooks.default
 
 
 t('auto', t => {
-  let hooks = require('./index.js')
-
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
   t.ok(hooks.useEffect, 'useEffect')
@@ -18,7 +36,7 @@ t('auto', t => {
 
 
 t('preact', t => {
-  let hooks = require('./preact.js')
+  setHooks(require('preact/hooks'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -33,7 +51,7 @@ t('preact', t => {
 })
 
 t('react', t => {
-  let hooks = require('./react.js')
+  setHooks(require('react'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -49,7 +67,7 @@ t('react', t => {
 })
 
 t('haunted', t => {
-  let hooks = require('./haunted.js')
+  setHooks(require('haunted'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -64,7 +82,7 @@ t('haunted', t => {
 })
 
 t('augmentor', t => {
-  let hooks = require('./augmentor.js')
+  setHooks(require('augmentor'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -79,7 +97,7 @@ t('augmentor', t => {
 })
 
 t('dom-augmentor', t => {
-  let hooks = require('./dom-augmentor.js')
+  setHooks(require('dom-augmentor'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -94,7 +112,7 @@ t('dom-augmentor', t => {
 })
 
 t('neverland', t => {
-  let hooks = require('./neverland.js')
+  setHooks(require('neverland'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -109,7 +127,7 @@ t('neverland', t => {
 })
 
 t('rax', t => {
-  let hooks = require('./rax.js')
+  setHooks(require('rax'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -124,7 +142,7 @@ t('rax', t => {
 })
 
 t('atomico', t => {
-  let hooks = require('./atomico.js')
+  setHooks(require('atomico'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -139,7 +157,7 @@ t('atomico', t => {
 })
 
 t('tng-hooks', t => {
-  let hooks = require('./tng-hooks.js')
+  setHooks(require('tng-hooks'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -154,7 +172,7 @@ t('tng-hooks', t => {
 })
 
 t('fn-with-hooks', t => {
-  let hooks = require('./fn-with-hooks.js')
+  setHooks(require('fn-with-hooks'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -169,7 +187,7 @@ t('fn-with-hooks', t => {
 })
 
 t('fuco', t => {
-  let hooks = require('./fuco.js')
+  setHooks(require('fuco'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
