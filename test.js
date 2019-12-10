@@ -216,7 +216,7 @@ t('object set', t => {
   t.ok(hooks.useContext, 'useContext')
   t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
 
-  t.ok(hooks.current, 'preact')
+  t.notEqual(hooks.current, 'fuco')
 
   t.end()
 })
