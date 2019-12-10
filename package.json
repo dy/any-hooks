@@ -1,6 +1,6 @@
 {
   "name": "any-hooks",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Resolve any available installed hooks",
   "main": "index.js",
   "scripts": {
