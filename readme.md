@@ -67,7 +67,7 @@ useHooks(hooks)
 
 ### Hooks libraries / packages
 
-_Any-hooks_ can be used in hooks libraries to extend frameworks support to non-react.
+_Any-hooks_ can be used in hooks libraries (like [unihooks](https://ghub.io/unihooks)) to extend frameworks support to non-react.
 
 ```js
 // super-hooks
@@ -180,9 +180,9 @@ moduleAlias.addAliases({ 'react': 'any-hooks' })
 
 ## See also
 
-* [unihooks](https://ghub.io/unihooks) − essential multiframework hooks collection
+* [unihooks](https://ghub.io/unihooks) − multiframework hooks collection
 * [enhook](https://ghub.io/enhook) − turn function into hooks-enabled function.
-* [unhook](https://ghub.io/unhook) − unleash hooks - make them available directly.
+* [unhook](https://ghub.io/unhook) − make hooks available outside of component/function scope.
 * [remorph](https://ghub.io/@dy/remorph) − react/preact-based morphdom.
 * [any-observable](https://ghub.io/any-observable) − resolve any installed Observable.
 
