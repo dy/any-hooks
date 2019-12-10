@@ -200,3 +200,20 @@ t('fuco', t => {
 
   t.end()
 })
+
+t('named set', t => {
+  setHooks('preact')
+
+  t.ok(hooks.useState, 'useState')
+  t.ok(hooks.useReducer, 'useReducer')
+  t.ok(hooks.useEffect, 'useEffect')
+  t.ok(hooks.useMemo, 'useMemo')
+  t.ok(hooks.useCallback, 'useCallback')
+  t.ok(hooks.useRef, 'useRef')
+  t.ok(hooks.useContext, 'useContext')
+  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
+
+  t.ok(hooks.current, 'preact')
+
+  t.end()
+})
