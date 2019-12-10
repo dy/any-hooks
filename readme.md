@@ -29,6 +29,19 @@ export function useMyHook(init) {
 * [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
 * ...
 
+
+Custom hooks provider can be set as:
+
+```js
+import useHooks from 'any-hooks'
+import hooks from 'my-custom-hooks'
+
+useHooks(hooks)
+
+// now all deps, using any-hooks, automatically use my-custom-hooks
+```
+
+
 ## Supported hooks
 
 |                         | React | Preact | Rax | Haunted  | Neverland / Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
@@ -48,16 +61,6 @@ export function useMyHook(init) {
 
 <sup>*</sup> − non-standard
 
-Custom hooks provider can be set as:
-
-```js
-import useHooks from 'any-hooks'
-import hooks from 'my-custom-hooks'
-
-useHooks(hooks)
-
-// now all deps, using any-hooks, automatically use my-custom-hooks
-```
 
 
 ## Use cases
