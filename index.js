@@ -15,7 +15,7 @@ try { libs.fuco = require('fuco'); } catch (e) { }
 try { libs['tng-hooks'] = require('tng-hooks'); } catch (e) { }
 try { libs['fn-with-hooks'] = require('fn-with-hooks'); } catch (e) { }
 
-function setHooks(hooks) {
+function setHooks(hooks, provider) {
   if (typeof hooks === 'string') {
     lib = libs[hooks]
     if (!lib) throw Error('Hooks provider is not found: `' + hooks + '`.')
@@ -23,7 +23,7 @@ function setHooks(hooks) {
   }
   else {
     lib = hooks
-    current = 'custom'
+    current = provider
   }
 
   useState = lib.useState
