@@ -14,7 +14,7 @@ export function useMyHook(init) {
 
 ## Supported libraries
 
-**any-hooks** attempts to detect hooks providers in the following order:
+**any-hooks** detects hooks providers from available installed hooks frameworks:
 
 * [`react`](https://ghub.io/react)
 * [`preact`](https://ghub.io/preact)
