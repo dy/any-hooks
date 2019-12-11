@@ -38,13 +38,13 @@ setHooks('preact')
 ```
 
 
-Custom hooks provider can be set as:
+Custom hooks provider can be registered as:
 
 ```js
 import setHooks from 'any-hooks'
 import hooks from 'my-custom-hooks'
 
-setHooks(hooks, 'my-custom-hooks')
+setHooks('my-custom-hooks', hooks)
 
 // now all packages depending on any-hooks (like unihooks) automatically use my-custom-hooks
 ```

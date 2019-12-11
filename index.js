@@ -17,17 +17,14 @@ try { libs['fn-with-hooks'] = require('fn-with-hooks'); } catch (e) { }
 
 let defaultHooks = Object.keys(libs).filter(Boolean)[0]
 
-function setHooks(hooks, provider) {
-  if (!hooks) hooks = defaultHooks
-  if (typeof hooks === 'string') {
-    lib = libs[hooks]
-    if (!lib) throw Error('Hooks provider is not found: `' + hooks + '`.')
-    current = hooks
-  }
-  else {
-    lib = hooks
-    current = provider
-  }
+function setHooks(name, hooks) {
+  if (!name) name = defaultHooks
+
+  lib = libs[name]
+  if (!lib && !hooks) throw Error('Unknown hooks: `' + name + '`.')
+
+  current = name
+  if (!lib) lib = libs[name] = hooks
 
   useState = lib.useState
   useEffect = lib.useEffect

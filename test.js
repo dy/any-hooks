@@ -204,8 +204,8 @@ t('fuco', t => {
   t.end()
 })
 
-t('object set', t => {
-  setHooks(require('preact/hooks'))
+t('custom', t => {
+  setHooks('custom-hooks', require('preact/hooks'))
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
