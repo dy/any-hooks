@@ -21,7 +21,7 @@ let hooks = require('./index.js')
 let setHooks = hooks.default
 
 
-t('auto', t => {
+t('default', t => {
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
   t.ok(hooks.useEffect, 'useEffect')
@@ -220,3 +220,20 @@ t('object set', t => {
 
   t.end()
 })
+
+
+t('null', t => {
+  setHooks(null)
+
+  t.ok(hooks.useState, 'useState')
+  t.ok(hooks.useReducer, 'useReducer')
+  t.ok(hooks.useEffect, 'useEffect')
+  t.ok(hooks.useMemo, 'useMemo')
+  t.ok(hooks.useCallback, 'useCallback')
+  t.ok(hooks.useRef, 'useRef')
+  t.ok(hooks.useContext, 'useContext')
+  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
+
+  t.end()
+})
+
