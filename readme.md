@@ -44,7 +44,7 @@ Custom hooks provider can be set as:
 import setHooks from 'any-hooks'
 import hooks from 'my-custom-hooks'
 
-setHooks(hooks)
+setHooks(hooks, 'my-custom-hooks')
 
 // now all packages depending on any-hooks (like unihooks) automatically use my-custom-hooks
 ```
