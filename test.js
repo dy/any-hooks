@@ -1,3 +1,7 @@
+import t from 'tst'
+import setHooks, * as hooks from './index.js'
+
+
 // polyfill MessageChannel for node (fuco requires it)
 // FIXME: remove once https://github.com/wtnbass/fuco/issues/33
 if (typeof MessageChannel === 'undefined') {
@@ -16,12 +20,7 @@ if (typeof MessageChannel === 'undefined') {
 }
 
 
-let t = require('tape')
-let hooks = require('./index.js')
-let setHooks = hooks.default
-
-
-t('default', t => {
+t.skip('default', t => {
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
   t.ok(hooks.useEffect, 'useEffect')
@@ -35,8 +34,10 @@ t('default', t => {
 })
 
 
-t('preact', t => {
-  setHooks('preact/hooks')
+t.only('preact', async t => {
+  // setHooks('preact/hooks')
+  let preactHooks = await import('preact/hooks')
+  setHooks(preactHooks)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -50,8 +51,9 @@ t('preact', t => {
   t.end()
 })
 
-t('react', t => {
-  setHooks('react')
+t.only('react', async t => {
+  let react = await import('preact/hooks')
+  setHooks(react)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -66,7 +68,7 @@ t('react', t => {
   t.end()
 })
 
-t('haunted', t => {
+t.browser('haunted', t => {
   // FIXME
   if (process.versions.node) return t.end()
 
@@ -84,8 +86,11 @@ t('haunted', t => {
   t.end()
 })
 
-t('augmentor', t => {
-  setHooks('augmentor')
+t.only('augmentor', async t => {
+  let aug = await import('augmentor')
+  setHooks(aug)
+
+  // setHooks('augmentor')
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')

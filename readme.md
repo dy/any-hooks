@@ -1,71 +1,58 @@
 # any-hooks [![Build Status](https://travis-ci.org/unihooks/any-hooks.svg?branch=master)](https://travis-ci.org/unihooks/any-hooks) [![unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](http://github.com/badges/stability-badges)
 
-Resolve any installed available hooks.
+Resolve or switch hooks. Hooks are detected from installed hook libraries, if no hooks found - manual setup is expected.
 
 [![NPM](https://nodei.co/npm/any-hooks.png?mini=true)](https://nodei.co/npm/any-hooks/)
 
 ```js
-import { useState, useEffect } from 'any-hooks'
+import setHooks, { useState, useEffect } from 'any-hooks'
 
 export function useMyHook(init) {
   let [state, setState] = useState(init)
 }
 ```
 
-## Supported libraries
-
-**any-hooks** detects hooks providers from available installed hooks frameworks:
+### Supported libraries:
 
 * [`react`](https://ghub.io/react)
 * [`preact`](https://ghub.io/preact)
 * [`rax`](https://ghub.io/rax)
 * [`haunted`](https://ghub.io/haunted)
+* [`spect`](https://ghub.io/spect)
 * [`neverland`](https://ghub.io/neverland)
+* [`fuco`](https://ghub.io/fuco)
 * [`dom-augmentor`](https://ghub.io/dom-augmentor)
 * [`augmentor`](https://ghub.io/augmentor)
 * [`atomico`](https://ghub.io/atomico)
-* [`fuco`](https://ghub.io/fuco)
 * [`tng-hooks`](https://ghub.io/tng-hooks) (manual call API)
 * [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
 * ...
 
-To set particular hooks provider:
-
-```js
-import setHooks, * as hooks from 'any-hooks'
-
-setHooks('preact')
-```
-
-
-Custom hooks provider can be registered as:
+### Set hooks manually:
 
 ```js
 import setHooks from 'any-hooks'
-import hooks from 'my-custom-hooks'
-
-setHooks('my-custom-hooks', hooks)
-
-// now all packages depending on any-hooks (like unihooks) automatically use my-custom-hooks
+import hooks from 'preact/hooks'
+setHooks(hooks)
 ```
 
 
 ## Supported hooks
 
-|                         | React | Preact | Rax | Haunted  | Neverland / Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
+|                         | React | Preact | Rax | Haunted  | Neverland, Spect, Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| `useState`              | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
-| `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
-| `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*                | ✅    | ❌      | ❌        | ❌ |
-| `useCallback`           | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ❌      | ✅        | ✅ |
-| `useReducer`            | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
-| `useMemo`               | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ✅        | ✅ |
-| `useRef`                | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ❌      | ✅        | ❌ |
-| `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅                 | ✅    | ✅      | ❌        | ❌ |
-| `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌                 | ❌    | ❌      | ❌        | ❌ |
-| `useDebugValue`*        | ✅    | ❌    | ❌  | ❌      | ❌                 | ❌    | ❌      | ❌        | ❌ |
-| `useTransition`*        | ✅*   | ❌    | ❌  | ❌      | ❌                 | ❌    | ❌      | ❌        | ❌ |
-| `useProperty`*          | ❌    | ❌    | ❌  | ❌      | ❌                 | ✅    | ✅      | ❌        | ❌ |
+| `useState`              | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
+| `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
+| `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*                        | ✅    | ❌      | ❌        | ❌ |
+| `useCallback`           | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ✅        | ✅ |
+| `useReducer`            | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
+| `useMemo`               | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
+| `useRef`                | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ✅        | ❌ |
+| `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ❌        | ❌ |
+| `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
+| `useDebugValue`*        | ✅    | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
+| `useTransition`*        | ✅*   | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
+| `useProperty`*          | ❌    | ❌    | ❌  | ❌      | ❌                         | ✅    | ✅      | ❌        | ❌ |
 
 <sup>*</sup> − non-standard
 

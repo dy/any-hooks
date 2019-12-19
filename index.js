@@ -8,6 +8,7 @@ try { libs.preact = libs['preact/hooks'] = require('preact/hooks'); } catch (e) 
 try { libs.rax = require('rax'); } catch (e) { }
 try { libs.haunted = require('haunted'); } catch (e) { }
 try { libs.atomico = require('atomico'); } catch (e) { }
+try { libs.spect = require('spect'); } catch (e) { }
 try { libs.neverland = require('neverland'); } catch (e) { }
 try { libs['dom-augmentor'] = require('dom-augmentor'); } catch (e) { }
 try { libs.augmentor = require('augmentor'); } catch (e) { }
@@ -16,28 +17,32 @@ try { libs['tng-hooks'] = require('tng-hooks'); } catch (e) { }
 try { libs['fn-with-hooks'] = require('fn-with-hooks'); } catch (e) { }
 
 let defaultHooks = Object.keys(libs).filter(Boolean)[0]
+if (defaultHooks) setHooks(defaultHooks)
 
-function setHooks(name, hooks) {
-  if (!name) name = defaultHooks
+function setHooks(hooks) {
+  if (!hooks) hooks = defaultHooks
 
-  lib = libs[name]
-  if (!lib && !hooks) throw Error('Unknown hooks: `' + name + '`.')
+  if (typeof hooks === 'string') {
+    hooks = libs[hooks]
+    current = name
+  }
+  else {
+    current = 'custom'
+  }
 
-  current = name
-  if (!lib) lib = libs[name] = hooks
+  if (!hooks) throw Error('Unknown hooks: `' + arguments[0] + '`.')
 
-  useState = lib.useState
-  useEffect = lib.useEffect
-  useCallback = lib.useCallback
-  useContext = lib.useContext
-  useRef = lib.useRef
-  useReducer = lib.useReducer
-  useLayoutEffect = lib.useLayoutEffect
-  useMemo = lib.useMemo
-  useDebugValue = lib.useDebugValue
-  useTransition = lib.useTransition
-  useImperativeHandle = lib.useImperativeHandle
-  useProperty = lib.useProperty || lib.useProp
+  useState = hooks.useState
+  useEffect = hooks.useEffect
+  useCallback = hooks.useCallback
+  useContext = hooks.useContext
+  useRef = hooks.useRef
+  useReducer = hooks.useReducer
+  useLayoutEffect = hooks.useLayoutEffect
+  useMemo = hooks.useMemo
+  useDebugValue = hooks.useDebugValue
+  useTransition = hooks.useTransition
+  useImperativeHandle = hooks.useImperativeHandle
+  useProperty = hooks.useProperty || hooks.useProp
 }
 
-setHooks()
