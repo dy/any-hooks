@@ -26,6 +26,8 @@ export function useMyHook(init) {
 * [`atomico`](https://ghub.io/atomico)
 * [`tng-hooks`](https://ghub.io/tng-hooks) (manual call API)
 * [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
+* [`plumejs`](https://www.npmjs.com/package/plumejs)
+* [`component-register-hooks`](https://www.npmjs.com/package/component-register-hooks)
 * ...
 
 ### Set hooks manually:
