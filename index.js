@@ -1,36 +1,9 @@
-export default setHooks
-export let current, lib, libs = {}, useState, useEffect, useCallback, useContext, useRef, useReducer, useLayoutEffect, useMemo, useDebugValue, useTransition, useImperativeHandle, useProperty
+export const libs = {}
 
-// require is the only way (for now) to detect installed dependency
-// besides, this is the most safe detectible signature
-try { libs.react = require('react'); } catch (e) { }
-try { libs.preact = libs['preact/hooks'] = require('preact/hooks'); } catch (e) { }
-try { libs.rax = require('rax'); } catch (e) { }
-try { libs.haunted = require('haunted'); } catch (e) { }
-try { libs.atomico = require('atomico'); } catch (e) { }
-try { libs.spect = require('spect'); } catch (e) { }
-try { libs.neverland = require('neverland'); } catch (e) { }
-try { libs['dom-augmentor'] = require('dom-augmentor'); } catch (e) { }
-try { libs.augmentor = require('augmentor'); } catch (e) { }
-try { libs.fuco = require('fuco'); } catch (e) { }
-try { libs['tng-hooks'] = require('tng-hooks'); } catch (e) { }
-try { libs['fn-with-hooks'] = require('fn-with-hooks'); } catch (e) { }
+export let useState, useEffect, useCallback, useContext, useRef, useReducer, useLayoutEffect, useMemo, useDebugValue, useTransition, useImperativeHandle, useProperty
 
-let defaultHooks = Object.keys(libs).filter(Boolean)[0]
-if (defaultHooks) setHooks(defaultHooks)
-
-function setHooks(hooks) {
-  if (!hooks) hooks = defaultHooks
-
-  if (typeof hooks === 'string') {
-    hooks = libs[hooks]
-    current = name
-  }
-  else {
-    current = 'custom'
-  }
-
-  if (!hooks) throw Error('Unknown hooks: `' + arguments[0] + '`.')
+export default function register(hooks) {
+  if (!hooks) throw Error('Undefined hooks')
 
   useState = hooks.useState
   useEffect = hooks.useEffect
@@ -46,3 +19,22 @@ function setHooks(hooks) {
   useProperty = hooks.useProperty || hooks.useProp
 }
 
+let hooks
+
+// require is the only way (until `await import()` or `import.meta.resolve()`) to detect installed dependency
+if (!hooks) try { hooks = require('react') } catch (e) {}
+if (!hooks) try { hooks = require('preact/hooks') } catch (e) { }
+if (!hooks) try { hooks = require('rax') } catch (e) { }
+if (!hooks) try { hooks = require('haunted') } catch (e) { }
+if (!hooks) try { hooks = require('atomico') } catch (e) { }
+if (!hooks) try { hooks = require('spect') } catch (e) { }
+if (!hooks) try { hooks = require('neverland') } catch (e) { }
+if (!hooks) try { hooks = require('dom-augmentor') } catch (e) { }
+if (!hooks) try { hooks = require('component-register-hooks') } catch (e) { }
+if (!hooks) try { hooks = require('plumejs') } catch (e) { }
+if (!hooks) try { hooks = require('augmentor') } catch (e) { }
+if (!hooks) try { hooks = require('fuco') } catch (e) { }
+if (!hooks) try { hooks = require('tng-hooks') } catch (e) { }
+if (!hooks) try { hooks = require('fn-with-hooks') } catch (e) { }
+
+if (hooks) register(hooks)

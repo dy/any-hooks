@@ -5,7 +5,7 @@ Resolve or switch hooks. Hooks are detected from installed hook libraries, if no
 [![NPM](https://nodei.co/npm/any-hooks.png?mini=true)](https://nodei.co/npm/any-hooks/)
 
 ```js
-import setHooks, { useState, useEffect } from 'any-hooks'
+import { useState, useEffect } from 'any-hooks'
 
 export function useMyHook(init) {
   let [state, setState] = useState(init)
@@ -33,8 +33,11 @@ export function useMyHook(init) {
 ### Set hooks manually:
 
 ```js
-import setHooks from 'any-hooks'
+import setHooks from 'any-hooks/register'
 import hooks from 'preact/hooks'
+import { useState, useEffect } from 'any-hooks'
+
+// switch global hooks to preact
 setHooks(hooks)
 ```
 
@@ -177,11 +180,10 @@ moduleAlias.addAliases({ 'react': 'any-hooks' })
 
 ## See also
 
-* [unihooks](https://ghub.io/unihooks) − multiframework hooks collection
 * [enhook](https://ghub.io/enhook) − turn function into hooks-enabled function.
-* [unhook](https://ghub.io/unhook) − make hooks available outside of component/function scope.
-* [remorph](https://ghub.io/@dy/remorph) − react/preact-based morphdom.
+* [unihooks](https://ghub.io/unihooks) − multiframework hooks collection.
 * [any-observable](https://ghub.io/any-observable) − resolve any installed Observable.
+* [any-promise](https://ghub.io/any-promise) − resolve any installed Promise.
 
 ## License
 

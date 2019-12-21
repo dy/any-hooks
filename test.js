@@ -1,6 +1,6 @@
 import t from 'tst'
-import setHooks, * as hooks from './index.js'
-
+import * as hooks from './index.js'
+import setHooks from './register.js'
 
 // polyfill MessageChannel for node (fuco requires it)
 // FIXME: remove once https://github.com/wtnbass/fuco/issues/33
@@ -20,7 +20,7 @@ if (typeof MessageChannel === 'undefined') {
 }
 
 
-t.skip('default', t => {
+t.require('default', async t => {
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
   t.ok(hooks.useEffect, 'useEffect')
@@ -33,10 +33,28 @@ t.skip('default', t => {
   t.end()
 })
 
+t('augmentor', async t => {
+  let aug = await import('augmentor')
 
-t.only('preact', async t => {
-  // setHooks('preact/hooks')
+  setHooks(aug)
+
+  t.ok(hooks.useState, 'useState')
+  t.ok(hooks.useReducer, 'useReducer')
+  t.ok(hooks.useEffect, 'useEffect')
+  t.ok(hooks.useMemo, 'useMemo')
+  t.ok(hooks.useCallback, 'useCallback')
+  t.ok(hooks.useRef, 'useRef')
+  t.ok(hooks.useContext, 'useContext')
+  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
+
+  t.equal(hooks.useState, aug.useState)
+
+  t.end()
+})
+
+t('preact', async t => {
   let preactHooks = await import('preact/hooks')
+
   setHooks(preactHooks)
 
   t.ok(hooks.useState, 'useState')
@@ -48,10 +66,13 @@ t.only('preact', async t => {
   t.ok(hooks.useContext, 'useContext')
   t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
 
+  t.equal(hooks.useState, preactHooks.useState)
+
   t.end()
 })
 
-t.only('react', async t => {
+
+t('react', async t => {
   let react = await import('preact/hooks')
   setHooks(react)
 
@@ -65,14 +86,14 @@ t.only('react', async t => {
   t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
   t.notOk(hooks.createElement)
 
+  t.equal(hooks.useState, react.useState)
+
   t.end()
 })
 
-t.browser('haunted', t => {
-  // FIXME
-  if (process.versions.node) return t.end()
-
-  setHooks('haunted')
+t.browser('haunted', async t => {
+  let haunted = await import('augmentor')
+  setHooks(haunted)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -86,11 +107,9 @@ t.browser('haunted', t => {
   t.end()
 })
 
-t.only('augmentor', async t => {
-  let aug = await import('augmentor')
-  setHooks(aug)
-
-  // setHooks('augmentor')
+t('dom-augmentor', async t => {
+  let daug = await import('dom-augmentor')
+  setHooks(daug)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -104,8 +123,9 @@ t.only('augmentor', async t => {
   t.end()
 })
 
-t('dom-augmentor', t => {
-  setHooks('dom-augmentor')
+t('neverland', async t => {
+  let neverland = await import('neverland')
+  setHooks(neverland)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -119,8 +139,9 @@ t('dom-augmentor', t => {
   t.end()
 })
 
-t('neverland', t => {
-  setHooks('neverland')
+t('rax', async t => {
+  let rax = await import('rax')
+  setHooks(rax)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -134,23 +155,9 @@ t('neverland', t => {
   t.end()
 })
 
-t('rax', t => {
-  setHooks('rax')
-
-  t.ok(hooks.useState, 'useState')
-  t.ok(hooks.useReducer, 'useReducer')
-  t.ok(hooks.useEffect, 'useEffect')
-  t.ok(hooks.useMemo, 'useMemo')
-  t.ok(hooks.useCallback, 'useCallback')
-  t.ok(hooks.useRef, 'useRef')
-  t.ok(hooks.useContext, 'useContext')
-  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
-
-  t.end()
-})
-
-t('atomico', t => {
-  setHooks('atomico')
+t('atomico', async t => {
+  let atomico = await import('atomico')
+  setHooks(atomico)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -164,8 +171,9 @@ t('atomico', t => {
   t.end()
 })
 
-t('tng-hooks', t => {
-  setHooks('tng-hooks')
+t('tng-hooks', async t => {
+  let tng = await import('tng-hooks')
+  setHooks(tng)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -179,8 +187,9 @@ t('tng-hooks', t => {
   t.end()
 })
 
-t('fn-with-hooks', t => {
-  setHooks('fn-with-hooks')
+t('fn-with-hooks', async t => {
+  let fn = await import('fn-with-hooks')
+  setHooks(fn)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -194,8 +203,9 @@ t('fn-with-hooks', t => {
   t.end()
 })
 
-t('fuco', t => {
-  setHooks('fuco')
+t('fuco', async t => {
+  let fuco = await import('fuco')
+  setHooks(fuco)
 
   t.ok(hooks.useState, 'useState')
   t.ok(hooks.useReducer, 'useReducer')
@@ -209,36 +219,4 @@ t('fuco', t => {
   t.end()
 })
 
-t('custom', t => {
-  setHooks('custom-hooks', require('preact/hooks'))
-
-  t.ok(hooks.useState, 'useState')
-  t.ok(hooks.useReducer, 'useReducer')
-  t.ok(hooks.useEffect, 'useEffect')
-  t.ok(hooks.useMemo, 'useMemo')
-  t.ok(hooks.useCallback, 'useCallback')
-  t.ok(hooks.useRef, 'useRef')
-  t.ok(hooks.useContext, 'useContext')
-  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
-
-  t.notEqual(hooks.current, 'fuco')
-
-  t.end()
-})
-
-
-t('null', t => {
-  setHooks(null)
-
-  t.ok(hooks.useState, 'useState')
-  t.ok(hooks.useReducer, 'useReducer')
-  t.ok(hooks.useEffect, 'useEffect')
-  t.ok(hooks.useMemo, 'useMemo')
-  t.ok(hooks.useCallback, 'useCallback')
-  t.ok(hooks.useRef, 'useRef')
-  t.ok(hooks.useContext, 'useContext')
-  t.ok(hooks.useLayoutEffect, 'useLayoutEffect')
-
-  t.end()
-})
 
