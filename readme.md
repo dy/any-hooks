@@ -51,9 +51,9 @@ setHooks(hooks)
 | `useContext`            | ✅    | ✅    | ✅  | ✅      | ✅*                        | ✅    | ❌      | ❌        | ❌ |
 | `useCallback`           | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ✅        | ✅ |
 | `useReducer`            | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
-| `useMemo`               | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
+| `useMemo`               | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅*     | ✅        | ✅ |
 | `useRef`                | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ✅        | ❌ |
-| `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ❌        | ❌ |
+| `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ❌        | ❌ |
 | `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
 | `useDebugValue`*        | ✅    | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
 | `useTransition`*        | ✅*   | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
