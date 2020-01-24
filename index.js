@@ -1,5 +1,3 @@
-export const libs = {}
-
 export let useState, useEffect, useCallback, useContext, useRef, useReducer, useLayoutEffect, useMemo, useDebugValue, useTransition, useImperativeHandle, useProperty
 
 export default function register(hooks) {
@@ -13,7 +11,6 @@ export default function register(hooks) {
   useReducer = hooks.useReducer
   useLayoutEffect = hooks.useLayoutEffect
   useMemo = hooks.useMemo
-  useDebugValue = hooks.useDebugValue
   useTransition = hooks.useTransition
   useImperativeHandle = hooks.useImperativeHandle
   useProperty = hooks.useProperty || hooks.useProp
@@ -21,7 +18,8 @@ export default function register(hooks) {
 
 let hooks
 
-// require is the only way (until `await import()` or `import.meta.resolve()`) to detect installed dependency
+// require is the only way to detect installed hooks
+// until `await import()` or `import.meta.resolve()` is implemented
 if (!hooks) try { hooks = require('react') } catch (e) {}
 if (!hooks) try { hooks = require('preact/hooks') } catch (e) { }
 if (!hooks) try { hooks = require('rax') } catch (e) { }
