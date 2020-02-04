@@ -1,6 +1,6 @@
 {
   "name": "any-hooks",
-  "version": "4.0.2",
+  "version": "4.1.0",
   "description": "Resolve or switch hooks",
   "main": "index.js",
   "scripts": {
