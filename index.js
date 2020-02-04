@@ -26,15 +26,24 @@ if (typeof require !== 'undefined') {
   if (!hooks) try { hooks = require('rax') } catch (e) { }
   if (!hooks) try { hooks = require('haunted') } catch (e) { }
   if (!hooks) try { hooks = require('atomico') } catch (e) { }
-  if (!hooks) try { hooks = require('spect') } catch (e) { }
-  if (!hooks) try { hooks = require('neverland') } catch (e) { }
-  if (!hooks) try { hooks = require('dom-augmentor') } catch (e) { }
-  if (!hooks) try { hooks = require('component-register-hooks') } catch (e) { }
-  if (!hooks) try { hooks = require('plumejs') } catch (e) { }
   if (!hooks) try { hooks = require('augmentor') } catch (e) { }
   if (!hooks) try { hooks = require('fuco') } catch (e) { }
-  if (!hooks) try { hooks = require('tng-hooks') } catch (e) { }
-  if (!hooks) try { hooks = require('fn-with-hooks') } catch (e) { }
+
+  // too few downloads
+  // if (!hooks) try { hooks = require('tng-hooks') } catch (e) { }
+
+  // re-exports augmentor
+  // if (!hooks) try { hooks = require('dom-augmentor') } catch (e) { }
+  // if (!hooks) try { hooks = require('neverland') } catch (e) { }
+
+  // not popular
+  // if (!hooks) try { hooks = require('component-register-hooks') } catch (e) { }
+
+  // exports only useRef
+  // if (!hooks) try { hooks = require('plumejs') } catch (e) { }
+
+  // not popular
+  // if (!hooks) try { hooks = require('fn-with-hooks') } catch (e) { }
 }
 
 if (hooks) register(hooks)

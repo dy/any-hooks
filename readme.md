@@ -1,6 +1,6 @@
 # any-hooks [![Build Status](https://travis-ci.org/unihooks/any-hooks.svg?branch=master)](https://travis-ci.org/unihooks/any-hooks) [![unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](http://github.com/badges/stability-badges)
 
-Resolve or switch hooks. Hooks are detected from installed hook libraries, if no hooks found - manual setup is expected.
+Resolve available hooks. Hooks are detected from installed hook libraries, if no hooks found - manual setup is expected.
 
 [![NPM](https://nodei.co/npm/any-hooks.png?mini=true)](https://nodei.co/npm/any-hooks/)
 
@@ -12,39 +12,34 @@ export function useMyHook(init) {
 }
 ```
 
-### Supported libraries:
+### Detected libraries:
 
-* [`react`](https://ghub.io/react)
-* [`preact`](https://ghub.io/preact)
-* [`rax`](https://ghub.io/rax)
-* [`haunted`](https://ghub.io/haunted)
-* [`spect`](https://ghub.io/spect)
-* [`neverland`](https://ghub.io/neverland)
-* [`fuco`](https://ghub.io/fuco)
-* [`dom-augmentor`](https://ghub.io/dom-augmentor)
-* [`augmentor`](https://ghub.io/augmentor)
-* [`atomico`](https://ghub.io/atomico)
-* [`tng-hooks`](https://ghub.io/tng-hooks) (manual call API)
-* [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual call API)
-* [`plumejs`](https://www.npmjs.com/package/plumejs)
-* [`component-register-hooks`](https://www.npmjs.com/package/component-register-hooks)
-* ...
+* [x] [`react`](https://ghub.io/react)
+* [x] [`preact`](https://ghub.io/preact)
+* [x] [`rax`](https://ghub.io/rax)
+* [x] [`haunted`](https://ghub.io/haunted)
+* [x] [`fuco`](https://ghub.io/fuco)
+* [x] [`augmentor`](https://ghub.io/augmentor) ([`dom-augmentor`](https://ghub.io/dom-augmentor), [`neverland`](https://ghub.io/neverland))
+* [x] [`atomico`](https://ghub.io/atomico)
+* [ ] [`tng-hooks`](https://ghub.io/tng-hooks) (manual)
+* [ ] [`fn-with-hooks`](https://ghub.io/fn-with-hooks) (manual)
+* [ ] [`plumejs`](https://www.npmjs.com/package/plumejs) (manual)
+* [ ] [`component-register-hooks`](https://www.npmjs.com/package/component-register-hooks) (manual)
 
 ### Set hooks manually:
 
 ```js
-import setHooks from 'any-hooks/register'
-import hooks from 'preact/hooks'
-import { useState, useEffect } from 'any-hooks'
+import hooks from 'tng-hooks'
+import setHooks, { useState, useEffect } from 'any-hooks'
 
-// switch global hooks to preact
+// switch global hooks to custom hooks lib, like tng-hooks
 setHooks(hooks)
 ```
 
 
 ## Supported hooks
 
-|                         | React | Preact | Rax | Haunted  | Neverland, Spect, Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
+|                         | React | Preact | Rax | Haunted  | Augmentor | Fuco  | Atomico  | TNG-hooks | fn-with-hooks |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `useState`              | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
 | `useEffect`             | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ✅      | ✅        | ✅ |
@@ -96,6 +91,10 @@ const config = {
     "alias": {
       "react": "any-hook"
     },
+  },
+  // mute warnings
+  "stats": {
+    "warnings": false
   }
 }
 ```
