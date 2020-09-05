@@ -183,6 +183,7 @@ moduleAlias.addAliases({ 'react': 'any-hooks' })
 * [unihooks](https://ghub.io/unihooks) − multiframework hooks collection.
 * [any-observable](https://ghub.io/any-observable) − resolve any installed Observable.
 * [any-promise](https://ghub.io/any-promise) − resolve any installed Promise.
+* [jsx-pragmatic](https://github.com/krakenjs/jsx-pragmatic) − any-framework JSX
 
 ## License
 
