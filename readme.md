@@ -1,6 +1,7 @@
 # any-hooks [![Build Status](https://travis-ci.org/unihooks/any-hooks.svg?branch=master)](https://travis-ci.org/unihooks/any-hooks) [![unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](http://github.com/badges/stability-badges)
 
-Resolve available hooks. Hooks are detected from installed hook libraries, if no hooks found - manual setup is expected.
+Resolve available hooks. Hooks are detected from installed hook libraries or configured manually.<br/>
+Main purpose is enabling react hooks & high-level hooks for non-react environments.
 
 [![NPM](https://nodei.co/npm/any-hooks.png?mini=true)](https://nodei.co/npm/any-hooks/)
 
@@ -26,7 +27,7 @@ export function useMyHook(init) {
 * [ ] [`plumejs`](https://www.npmjs.com/package/plumejs) (manual)
 * [ ] [`component-register-hooks`](https://www.npmjs.com/package/component-register-hooks) (manual)
 
-### Set hooks manually:
+#### Setup hooks manually:
 
 ```js
 import hooks from 'tng-hooks'
@@ -50,12 +51,9 @@ setHooks(hooks)
 | `useRef`                | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ✅        | ❌ |
 | `useLayoutEffect`       | ✅    | ✅    | ✅  | ✅      | ✅                         | ✅    | ❌      | ❌        | ❌ |
 | `useImperativeHandle`   | ✅    | ✅    | ✅  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
-| `useDebugValue`*        | ✅    | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
-| `useTransition`*        | ✅*   | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
-| `useProperty`*          | ❌    | ❌    | ❌  | ❌      | ❌                         | ✅    | ✅      | ❌        | ❌ |
-
-<sup>*</sup> − non-standard
-
+| `useDebugValue`         | ✅    | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
+| `useTransition`         | ✅    | ❌    | ❌  | ❌      | ❌                         | ❌    | ❌      | ❌        | ❌ |
+| `useProperty`           | ❌    | ❌    | ❌  | ❌      | ❌                         | ✅    | ✅      | ❌        | ❌ |
 
 
 ## Use cases
@@ -81,25 +79,28 @@ export function useMySuperHook(init) {
 
 _Any-hooks_ can enable react hooks for non-react libraries, like [augmentor](https://ghub.io/augmentor), [haunted](https://ghub.io/haunted) etc. The strategy is similar to [preact/compat](https://preactjs.com/guide/v10/getting-started#integrating-into-an-existing-pipeline) aliasing.
 
-#### Aliasing in webpack
-
-`webpack.config.js`:
-```js
-const config = {
-   //...
-  "resolve": {
-    "alias": {
-      "react": "any-hook"
+<details>
+  <summary><strong>Aliasing in webpack</strong></summary>
+  
+  `webpack.config.js`:
+  ```js
+  const config = {
+     //...
+    "resolve": {
+      "alias": {
+        "react": "any-hook"
+      },
     },
-  },
-  // mute warnings
-  "stats": {
-    "warnings": false
+    // mute warnings
+    "stats": {
+      "warnings": false
+    }
   }
-}
-```
+  ```
+</details>
 
-#### Aliasing in parcel
+<details>
+  <summary><strong>Aliasing in parcel</strong></summary>
 
 `package.json`:
 ```json
@@ -110,7 +111,10 @@ const config = {
 }
 ```
 
-#### Aliasing in babel
+</details>
+
+<details>
+  <summary><strong>Aliasing in babel</strong></summary>
 
 `.babelrc`:
 ```js
@@ -125,7 +129,10 @@ const config = {
 }
 ```
 
-#### Aliasing in rollup
+</details>
+
+<details>
+  <summary><strong>Aliasing in rollup</strong></summary>
 
 `rollup.config.js`:
 ```js
@@ -142,8 +149,10 @@ module.exports = {
   ]
 }
 ```
+</details>
 
-#### Aliasing in jest
+<details>
+  <summary><strong>Aliasing in jest</strong></summary>
 
 `jest.config.js`:
 ```js
@@ -154,8 +163,10 @@ module.exports = {
   },
 }
 ```
+</details>
 
-#### Aliasing via browserify
+<details>
+  <summary><strong>Aliasing via browserify</strong></summary>
 
 `npm i -D aliasify`, then in `package.json`:
 ```js
@@ -167,8 +178,10 @@ module.exports = {
   },
 }
 ```
+</details>
 
-#### Aliasing in node
+<details>
+  <summary><strong>Aliasing in node</strong></summary>
 
 `npm i -D module-alias`, then:
 
@@ -177,9 +190,10 @@ var moduleAlias = require('module-alias')
 moduleAlias.addAliases({ 'react': 'any-hooks' })
 ```
 
+</details>
+
 ## See also
 
-* [enhook](https://ghub.io/enhook) − turn function into hooks-enabled function.
 * [unihooks](https://ghub.io/unihooks) − multiframework hooks collection.
 * [any-observable](https://ghub.io/any-observable) − resolve any installed Observable.
 * [any-promise](https://ghub.io/any-promise) − resolve any installed Promise.
@@ -189,4 +203,4 @@ moduleAlias.addAliases({ 'react': 'any-hooks' })
 
 MIT
 
-<p align="right">HK</p>
+<p align="center"><a href="https://github.com/krishnized/license">ॐ</a></p>
